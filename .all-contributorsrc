@@ -1,6 +1,6 @@
 {
-  "projectName": "go-template",
-  "projectOwner": "mrz1836",
+  "projectName": "bux-kube-controller",
+  "projectOwner": "BuxOrg",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -23,6 +23,17 @@
           "maintenance",
           "security"
         ]
-      }
+      },
+        {
+            "login": "galt-tr",
+            "name": "Dylan",
+            "avatar_url": "https://avatars.githubusercontent.com/u/64976002?v=4",
+            "profile": "https://github.com/galt-tr",
+            "contributions": [
+                "infra",
+                "maintenance",
+                "code"
+            ]
+        }
     ]
 }
