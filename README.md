@@ -1,5 +1,5 @@
 # BUX: Kubernetes Controller
-> Manage your BUX deployments using Kubernetes
+> Manage your [BUX](https://getbux.io) deployments using Kubernetes
 
 [![Release](https://img.shields.io/github/release-pre/BuxOrg/bux-kube-controller.svg?logo=github&style=flat&v=1)](https://github.com/BuxOrg/bux-kube-controller/releases)
 [![Build Status](https://img.shields.io/github/workflow/status/BuxOrg/bux-kube-controller/run-go-tests?logo=github&v=1)](https://github.com/BuxOrg/bux-kube-controller/actions)
@@ -17,6 +17,7 @@
 <br/>
 
 ## Table of Contents
+- [What is BUX?](#what-is-bux)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Examples & Tests](#examples--tests)
@@ -25,6 +26,11 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+
+<br/>
+
+## What is BUX?
+[Read more about BUX](https://getbux.io)
 
 <br/>
 
@@ -221,8 +227,8 @@ Thank you to these wonderful people ([emoji key](https://allcontributors.org/doc
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://mrz1818.com"><img src="https://avatars.githubusercontent.com/u/3743002?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mr. Z</b></sub></a><br /><a href="#infra-mrz1836" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/BuxOrg/bux-kube-controller/commits?author=mrz1836" title="Code">💻</a> <a href="#maintenance-mrz1836" title="Maintenance">🚧</a> <a href="#security-mrz1836" title="Security">🛡️</a></td>
     <td align="center"><a href="https://github.com/galt-tr"><img src="https://avatars.githubusercontent.com/u/64976002?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dylan</b></sub></a><br /><a href="#infra-galt-tr" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-galt-tr" title="Maintenance">🚧</a> <a href="https://github.com/BuxOrg/bux-kube-controller/commits?author=galt-tr" title="Code">💻</a></td>
+    <td align="center"><a href="https://mrz1818.com"><img src="https://avatars.githubusercontent.com/u/3743002?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mr. Z</b></sub></a><br /><a href="#infra-mrz1836" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/BuxOrg/bux-kube-controller/commits?author=mrz1836" title="Code">💻</a> <a href="#maintenance-mrz1836" title="Maintenance">🚧</a> <a href="#security-mrz1836" title="Security">🛡️</a></td>
   </tr>
 </table>
 

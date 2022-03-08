@@ -12,6 +12,17 @@
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": false,
   "contributors": [
+        {
+          "login": "galt-tr",
+          "name": "Dylan",
+          "avatar_url": "https://avatars.githubusercontent.com/u/64976002?v=4",
+          "profile": "https://github.com/galt-tr",
+          "contributions": [
+              "infra",
+              "maintenance",
+              "code"
+          ]
+      },
       {
         "login": "mrz1836",
         "name": "Mr. Z",
@@ -23,17 +34,6 @@
           "maintenance",
           "security"
         ]
-      },
-        {
-            "login": "galt-tr",
-            "name": "Dylan",
-            "avatar_url": "https://avatars.githubusercontent.com/u/64976002?v=4",
-            "profile": "https://github.com/galt-tr",
-            "contributions": [
-                "infra",
-                "maintenance",
-                "code"
-            ]
-        }
+      }
     ]
 }
