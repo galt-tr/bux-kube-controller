@@ -1,3 +1,18 @@
+# Common makefile commands & variables between projects
+include .make/common.mk
+
+# Common Golang makefile commands & variables between projects
+include .make/go.mk
+
+## Not defined? Use default repo name which is the application
+ifeq ($(REPO_NAME),)
+	REPO_NAME="bux-kube-controller"
+endif
+
+## Not defined? Use default repo owner
+ifeq ($(REPO_OWNER),)
+	REPO_OWNER="BuxOrg"
+endif
 
 # Image URL to use all building/pushing image targets
 IMG ?= controller:latest
