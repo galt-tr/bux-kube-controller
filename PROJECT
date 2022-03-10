@@ -1,0 +1,16 @@
+domain: buxorg.io
+layout:
+- go.kubebuilder.io/v3
+projectName: bux-kube-controller
+repo: github.com/BuxOrg/bux-kube-controller
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: buxorg.io
+  group: server
+  kind: Bux
+  path: github.com/BuxOrg/bux-kube-controller/api/v1alpha1
+  version: v1alpha1
+version: "3"

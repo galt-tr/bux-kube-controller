@@ -1,0 +1,20 @@
+# permissions for end users to view buxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: bux-viewer-role
+rules:
+- apiGroups:
+  - server.buxorg.io
+  resources:
+  - buxes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - server.buxorg.io
+  resources:
+  - buxes/status
+  verbs:
+  - get

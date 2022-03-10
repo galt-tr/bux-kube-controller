@@ -1,0 +1,6 @@
+apiVersion: server.buxorg.io/v1alpha1
+kind: Bux
+metadata:
+  name: bux-sample
+spec:
+  # TODO(user): Add fields here
