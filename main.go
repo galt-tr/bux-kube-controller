@@ -33,7 +33,7 @@ import (
 
 	serverv1alpha1 "github.com/BuxOrg/bux-kube-controller/api/v1alpha1"
 	"github.com/BuxOrg/bux-kube-controller/controllers"
-	//+kubebuilder:scaffold:imports
+	// +kubebuilder:scaffold:imports
 )
 
 var (
@@ -45,7 +45,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(serverv1alpha1.AddToScheme(scheme))
-	//+kubebuilder:scaffold:scheme
+	// +kubebuilder:scaffold:scheme
 }
 
 func main() {
@@ -71,7 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "1b6af390.buxorg.io",
+		LeaderElectionID:       "1b6af390.getbux.io",
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")
@@ -85,7 +85,7 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "Bux")
 		os.Exit(1)
 	}
-	//+kubebuilder:scaffold:builder
+	// +kubebuilder:scaffold:builder
 
 	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
 		setupLog.Error(err, "unable to set up health check")

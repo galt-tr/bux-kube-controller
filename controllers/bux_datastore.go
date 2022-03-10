@@ -11,6 +11,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileDatastore is the datastore
 func (r *BuxReconciler) ReconcileDatastore(log logr.Logger) (bool, error) {
 	return ReconcileBatch(log,
 		r.ReconcilePostgresqlDeployment,
@@ -19,6 +20,7 @@ func (r *BuxReconciler) ReconcileDatastore(log logr.Logger) (bool, error) {
 	)
 }
 
+// ReconcilePostgresqlDeployment is the postgres deployment
 func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -39,6 +41,7 @@ func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, er
 	return true, nil
 }
 
+// ReconcilePostgresqlPVC is the postgres PVC
 func (r *BuxReconciler) ReconcilePostgresqlPVC(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -97,17 +100,17 @@ func defaultPostgresqlDeploymentSpec() *appsv1.DeploymentSpec {
 		"app":        "bux",
 		"deployment": "bux-postgresql",
 	}
-	envFrom := []corev1.EnvFromSource{}
+	var envFrom []corev1.EnvFromSource
 	envVars := []corev1.EnvVar{
-		corev1.EnvVar{
+		{
 			Name:  "POSTGRESQL_USER",
 			Value: "bux",
 		},
-		corev1.EnvVar{
+		{
 			Name:  "POSTGRESQL_PASSWORD",
 			Value: "postgres",
 		},
-		corev1.EnvVar{
+		{
 			Name:  "POSTGRESQL_DATABASE",
 			Value: "bux",
 		},
@@ -123,7 +126,7 @@ func defaultPostgresqlDeploymentSpec() *appsv1.DeploymentSpec {
 			},
 			Spec: corev1.PodSpec{
 				InitContainers: []corev1.Container{
-					corev1.Container{
+					{
 						Name:  "pgsql-data-permission-fix",
 						Image: "busybox",
 						Command: []string{
@@ -133,7 +136,7 @@ func defaultPostgresqlDeploymentSpec() *appsv1.DeploymentSpec {
 							"/data",
 						},
 						VolumeMounts: []corev1.VolumeMount{
-							corev1.VolumeMount{
+							{
 								Name:      "psql-data",
 								MountPath: "/data",
 							},
@@ -141,20 +144,20 @@ func defaultPostgresqlDeploymentSpec() *appsv1.DeploymentSpec {
 					},
 				},
 				Containers: []corev1.Container{
-					corev1.Container{
+					{
 						EnvFrom:                  envFrom,
 						Env:                      envVars,
 						Image:                    image,
 						Name:                     "postgresql",
 						TerminationMessagePolicy: corev1.TerminationMessageFallbackToLogsOnError,
 						Ports: []corev1.ContainerPort{
-							corev1.ContainerPort{
+							{
 								ContainerPort: 5432,
 								Protocol:      corev1.ProtocolTCP,
 							},
 						},
 						VolumeMounts: []corev1.VolumeMount{
-							corev1.VolumeMount{
+							{
 								MountPath: "/var/lib/pgsql/data",
 								Name:      "psql-data",
 							},
@@ -162,7 +165,7 @@ func defaultPostgresqlDeploymentSpec() *appsv1.DeploymentSpec {
 					},
 				},
 				Volumes: []corev1.Volume{
-					corev1.Volume{
+					{
 						Name: "psql-data",
 						VolumeSource: corev1.VolumeSource{
 							PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{

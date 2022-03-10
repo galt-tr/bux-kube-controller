@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: buxes.server.buxorg.io
+  name: buxes.server.getbux.io
 spec:
-  group: server.buxorg.io
+  group: server.getbux.io
   names:
     kind: Bux
     listKind: BuxList

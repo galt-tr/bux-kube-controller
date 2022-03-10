@@ -16,6 +16,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileConfig will reconcile configuration
 func (r *BuxReconciler) ReconcileConfig(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -36,20 +37,22 @@ func (r *BuxReconciler) ReconcileConfig(log logr.Logger) (bool, error) {
 	return true, nil
 }
 
+// updateBuxConfigMap will update the config
 func (r *BuxReconciler) updateBuxConfigMap(configMap *corev1.ConfigMap, bux *serverv1alpha1.Bux) error {
 	err := controllerutil.SetControllerReference(bux, configMap, r.Scheme)
 	if err != nil {
 		return err
 	}
-	config := defaultBuxConfig()
+	configuration := defaultBuxConfig()
 	if bux.Spec.Configuration != nil && bux.Spec.Configuration.AdminXpub != "" {
-		config.Authentication.AdminKey = bux.Spec.Configuration.AdminXpub
+		configuration.Authentication.AdminKey = bux.Spec.Configuration.AdminXpub
 	}
 	if bux.Spec.Domain != "" {
-		config.Paymail.Domains[0] = fmt.Sprintf("%s.%s", bux.Namespace, bux.Spec.Domain)
+		configuration.Paymail.Domains[0] = fmt.Sprintf("%s.%s", bux.Namespace, bux.Spec.Domain)
 	}
-	data, err := json.Marshal(config)
-	if err != nil {
+
+	var data []byte
+	if data, err = json.Marshal(configuration); err != nil {
 		return err
 	}
 	configMap.Data = map[string]string{
@@ -58,6 +61,7 @@ func (r *BuxReconciler) updateBuxConfigMap(configMap *corev1.ConfigMap, bux *ser
 	return nil
 }
 
+// defaultBuxConfig is the default configuration
 func defaultBuxConfig() *config.AppConfig {
 	return &config.AppConfig{
 		Debug:          true,

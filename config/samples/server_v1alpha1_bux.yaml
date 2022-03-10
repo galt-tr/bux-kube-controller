@@ -1,4 +1,4 @@
-apiVersion: server.buxorg.io/v1alpha1
+apiVersion: server.getbux.io/v1alpha1
 kind: Bux
 metadata:
   name: bux-sample

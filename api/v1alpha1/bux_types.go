@@ -20,15 +20,23 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+// ConditionReconciled is reconciled
 const ConditionReconciled = "Reconciled"
+
+// ReconciledReasonComplete is complete
 const ReconciledReasonComplete = "Complete"
+
+// ReconciledReasonError is an error
 const ReconciledReasonError = "Error"
+
+// ReconcileCompleteMessage is when the reconile is complete
 const ReconcileCompleteMessage = "Reconcile complete"
 
 // TODO: this should just be the bux config type, but its missing DeepCopy
 // funcs or something like that idk:
 // https://github.com/operator-framework/operator-sdk/issues/612
 
+// BuxConfig is the BUX configuration
 type BuxConfig struct {
 	EnablePaymail  bool   `json:"enablePaymail"`
 	AdminXpub      string `json:"adminXpub"`
@@ -49,8 +57,8 @@ type BuxStatus struct {
 	Route      string             `json:"route,omitempty"`
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // Bux is the Schema for the buxes API
 type Bux struct {
@@ -61,7 +69,7 @@ type Bux struct {
 	Status BuxStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // BuxList contains a list of Bux
 type BuxList struct {

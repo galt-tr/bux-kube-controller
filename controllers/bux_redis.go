@@ -10,6 +10,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileRedis is for redis
 func (r *BuxReconciler) ReconcileRedis(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -30,7 +31,7 @@ func (r *BuxReconciler) ReconcileRedis(log logr.Logger) (bool, error) {
 	return true, nil
 }
 
-func (r *BuxReconciler) updateRedis(redis *redisv1beta1.Redis, bux *serverv1alpha1.Bux) error {
+func (r *BuxReconciler) updateRedis(redis *redisv1beta1.Redis, _ *serverv1alpha1.Bux) error {
 	redis.Spec = *defaultRedisSpec()
 	return nil
 }

@@ -6,7 +6,7 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
-  - server.buxorg.io
+  - server.getbux.io
   resources:
   - buxes
   verbs:
@@ -18,13 +18,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - server.buxorg.io
+  - server.getbux.io
   resources:
   - buxes/finalizers
   verbs:
   - update
 - apiGroups:
-  - server.buxorg.io
+  - server.getbux.io
   resources:
   - buxes/status
   verbs:

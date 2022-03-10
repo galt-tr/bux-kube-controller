@@ -43,9 +43,9 @@ type BuxReconciler struct {
 	NamespacedName types.NamespacedName
 }
 
-//+kubebuilder:rbac:groups=server.buxorg.io,resources=buxes,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=server.buxorg.io,resources=buxes/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=server.buxorg.io,resources=buxes/finalizers,verbs=update
+// +kubebuilder:rbac:groups=server.getbux.io,resources=buxes,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=server.getbux.io,resources=buxes/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=server.getbux.io,resources=buxes/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -58,14 +58,14 @@ type BuxReconciler struct {
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.11.0/pkg/reconcile
 func (r *BuxReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	r.Log = log.FromContext(ctx)
-	log := r.Log.WithValues("bux", req.NamespacedName)
+	logger := r.Log.WithValues("bux", req.NamespacedName)
 	result := ctrl.Result{}
 	r.Context = ctx
 	r.NamespacedName = req.NamespacedName
 	bux := serverv1alpha1.Bux{}
 
 	if err := r.Get(ctx, req.NamespacedName, &bux); err != nil {
-		log.Error(err, "unable to fetch Bux CR")
+		logger.Error(err, "unable to fetch Bux CR")
 		return result, nil
 	}
 
@@ -117,10 +117,12 @@ func (r *BuxReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		Complete(r)
 }
 
+// ReconcileFunc is a reconcile function type
 type ReconcileFunc func(logr.Logger) (bool, error)
 
-func ReconcileBatch(l logr.Logger, reconcileFuncs ...ReconcileFunc) (bool, error) {
-	for _, f := range reconcileFuncs {
+// ReconcileBatch will reconcile the batch of functions
+func ReconcileBatch(l logr.Logger, reconcileFunctions ...ReconcileFunc) (bool, error) {
+	for _, f := range reconcileFunctions {
 		if cont, err := f(l); !cont || err != nil {
 			return cont, err
 		}

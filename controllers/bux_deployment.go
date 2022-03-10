@@ -10,6 +10,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileDeployment is the deployment
 func (r *BuxReconciler) ReconcileDeployment(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -44,9 +45,9 @@ func defaultDeploymentSpec() *appsv1.DeploymentSpec {
 		"app":        "bux",
 		"deployment": "bux",
 	}
-	envFrom := []corev1.EnvFromSource{}
+	var envFrom []corev1.EnvFromSource
 	envVars := []corev1.EnvVar{
-		corev1.EnvVar{
+		{
 			Name:  "BUX_ENVIRONMENT",
 			Value: "development",
 		},
@@ -62,7 +63,7 @@ func defaultDeploymentSpec() *appsv1.DeploymentSpec {
 			},
 			Spec: corev1.PodSpec{
 				Containers: []corev1.Container{
-					corev1.Container{
+					{
 						EnvFrom:                  envFrom,
 						Env:                      envVars,
 						Image:                    image,
@@ -70,21 +71,21 @@ func defaultDeploymentSpec() *appsv1.DeploymentSpec {
 						Name:                     "bux",
 						TerminationMessagePolicy: corev1.TerminationMessageFallbackToLogsOnError,
 						Ports: []corev1.ContainerPort{
-							corev1.ContainerPort{
+							{
 								ContainerPort: 3003,
 								Protocol:      corev1.ProtocolTCP,
 							},
-							corev1.ContainerPort{
+							{
 								ContainerPort: 443,
 								Protocol:      corev1.ProtocolTCP,
 							},
-							corev1.ContainerPort{
+							{
 								ContainerPort: 80,
 								Protocol:      corev1.ProtocolTCP,
 							},
 						},
 						VolumeMounts: []corev1.VolumeMount{
-							corev1.VolumeMount{
+							{
 								MountPath: "config/envs",
 								Name:      "config",
 							},
@@ -92,7 +93,7 @@ func defaultDeploymentSpec() *appsv1.DeploymentSpec {
 					},
 				},
 				Volumes: []corev1.Volume{
-					corev1.Volume{
+					{
 						Name: "config",
 						VolumeSource: corev1.VolumeSource{
 							ConfigMap: &corev1.ConfigMapVolumeSource{

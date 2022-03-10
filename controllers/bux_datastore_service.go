@@ -9,6 +9,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileDatastoreService is the datastore service
 func (r *BuxReconciler) ReconcileDatastoreService(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -47,7 +48,7 @@ func defaultDatastoreServiceSpec() *corev1.ServiceSpec {
 		Selector: labels,
 		Type:     corev1.ServiceTypeClusterIP,
 		Ports: []corev1.ServicePort{
-			corev1.ServicePort{
+			{
 				Name:       "5432",
 				Port:       int32(5432),
 				TargetPort: intstr.FromInt(5432),

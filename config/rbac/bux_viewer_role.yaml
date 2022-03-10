@@ -5,7 +5,7 @@ metadata:
   name: bux-viewer-role
 rules:
 - apiGroups:
-  - server.buxorg.io
+  - server.getbux.io
   resources:
   - buxes
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - server.buxorg.io
+  - server.getbux.io
   resources:
   - buxes/status
   verbs:

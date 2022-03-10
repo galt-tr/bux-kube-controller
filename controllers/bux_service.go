@@ -12,6 +12,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileIngress is the ingress
 func (r *BuxReconciler) ReconcileIngress(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -36,6 +37,7 @@ func (r *BuxReconciler) ReconcileIngress(log logr.Logger) (bool, error) {
 	return true, nil
 }
 
+// ReconcileService is the service
 func (r *BuxReconciler) ReconcileService(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -84,7 +86,7 @@ func defaultIngressSpec(bux *serverv1alpha1.Bux) *networkingv1.IngressSpec {
 	pathType := networkingv1.PathTypeImplementationSpecific
 	return &networkingv1.IngressSpec{
 		TLS: []networkingv1.IngressTLS{
-			networkingv1.IngressTLS{
+			{
 				Hosts: []string{
 					fmt.Sprintf("%s.%s", bux.Namespace, bux.Spec.Domain),
 				},
@@ -92,12 +94,12 @@ func defaultIngressSpec(bux *serverv1alpha1.Bux) *networkingv1.IngressSpec {
 			},
 		},
 		Rules: []networkingv1.IngressRule{
-			networkingv1.IngressRule{
+			{
 				Host: fmt.Sprintf("%s.%s", bux.Namespace, bux.Spec.Domain),
 				IngressRuleValue: networkingv1.IngressRuleValue{
 					HTTP: &networkingv1.HTTPIngressRuleValue{
 						Paths: []networkingv1.HTTPIngressPath{
-							networkingv1.HTTPIngressPath{
+							{
 								PathType: &pathType,
 								Backend: networkingv1.IngressBackend{
 									Service: &networkingv1.IngressServiceBackend{
@@ -124,17 +126,17 @@ func defaultServiceSpec() *corev1.ServiceSpec {
 		Selector: labels,
 		Type:     corev1.ServiceTypeClusterIP,
 		Ports: []corev1.ServicePort{
-			corev1.ServicePort{
+			{
 				Name:       "3003",
 				Port:       int32(3003),
 				TargetPort: intstr.FromInt(3003),
 			},
-			corev1.ServicePort{
+			{
 				Name:       "443",
 				Port:       int32(443),
 				TargetPort: intstr.FromInt(443),
 			},
-			corev1.ServicePort{
+			{
 				Name:       "80",
 				Port:       int32(80),
 				TargetPort: intstr.FromInt(80),
