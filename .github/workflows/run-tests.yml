@@ -15,14 +15,6 @@ on:
   #  - cron: '1 4 * * *'
 
 jobs:
-  yamllint:
-    name: Run yaml linter
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run yaml linter
-        uses: ibiqlik/action-yamllint@v3.1
   asknancy:
     name: Ask Nancy (check dependencies)
     runs-on: ubuntu-latest
@@ -35,7 +27,7 @@ jobs:
         uses: sonatype-nexus-community/nancy-github-action@v1.0.2
         # continue-on-error: true
   test:
-    needs: [yamllint, asknancy]
+    needs: [asknancy]
     strategy:
       matrix:
         go-version: [1.16.x, 1.17.x]
@@ -59,7 +51,7 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-      - name: Run linter and tests
+      - name: Run tests
         run: make test
       - name: Update code coverage
         uses: codecov/codecov-action@v3.1.0
