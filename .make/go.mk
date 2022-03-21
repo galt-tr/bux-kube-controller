@@ -21,14 +21,6 @@ endif
 
 .PHONY: test lint vet install generate
 
-bench:  ## Run all benchmarks in the Go application
-	@echo "running benchmarks..."
-	@go test -bench=. -benchmem $(TAGS)
-
-build-go:  ## Build the Go application (locally)
-	@echo "building go app..."
-	@go build -o bin/$(BINARY_NAME) $(TAGS)
-
 clean-mods: ## Remove all the Go mod cache
 	@echo "cleaning mods..."
 	@go clean -modcache
@@ -37,10 +29,6 @@ coverage: ## Shows the test coverage
 	@echo "creating coverage report..."
 	@go test -coverprofile=coverage.out ./... $(TAGS) && go tool cover -func=coverage.out $(TAGS)
 
-generate: ## Runs the go generate command in the base of the repo
-	@echo "generating files..."
-	@go generate -v $(TAGS)
-
 godocs: ## Sync the latest tag with GoDocs
 	@echo "syndicating to GoDocs..."
 	@test $(GIT_DOMAIN)
@@ -48,14 +36,6 @@ godocs: ## Sync the latest tag with GoDocs
 	@test $(REPO_NAME)
 	@test $(VERSION_SHORT)
 	@curl https://proxy.golang.org/$(GIT_DOMAIN)/$(REPO_OWNER)/$(REPO_NAME)/@v/$(VERSION_SHORT).info
-
-install: ## Install the application
-	@echo "installing binary..."
-	@go build -o $$GOPATH/bin/$(BINARY_NAME) $(TAGS)
-
-install-go: ## Install the application (Using Native Go)
-	@echo "installing package..."
-	@go install $(GIT_DOMAIN)/$(REPO_OWNER)/$(REPO_NAME) $(TAGS)
 
 lint: ## Run the golangci-lint application (install if not found)
 	@echo "installing golangci-lint..."
@@ -72,19 +52,9 @@ lint: ## Run the golangci-lint application (install if not found)
 	@echo "running golangci-lint..."
 	@golangci-lint run --verbose
 
-test: ## Runs lint and ALL tests
-	@$(MAKE) lint
-	@echo "running tests..."
-	@go test ./... -v $(TAGS)
-
 test-unit: ## Runs tests and outputs coverage
 	@echo "running unit tests..."
 	@go test ./... -race -coverprofile=coverage.txt -covermode=atomic $(TAGS)
-
-test-short: ## Runs vet, lint and tests (excludes integration tests)
-	@$(MAKE) lint
-	@echo "running tests (short)..."
-	@go test ./... -v -test.short $(TAGS)
 
 test-ci: ## Runs all tests via CI (exports coverage)
 	@$(MAKE) lint
@@ -104,16 +74,6 @@ test-ci-short: ## Runs unit tests via CI (exports coverage)
 test-no-lint: ## Runs just tests
 	@echo "running tests..."
 	@go test ./... -v $(TAGS)
-
-uninstall: ## Uninstall the application (and remove files)
-	@echo "uninstalling go application..."
-	@test $(BINARY_NAME)
-	@test $(GIT_DOMAIN)
-	@test $(REPO_OWNER)
-	@test $(REPO_NAME)
-	@go clean -i $(GIT_DOMAIN)/$(REPO_OWNER)/$(REPO_NAME)
-	@rm -rf $$GOPATH/src/$(GIT_DOMAIN)/$(REPO_OWNER)/$(REPO_NAME)
-	@rm -rf $$GOPATH/bin/$(BINARY_NAME)
 
 update:  ## Update all project dependencies
 	@echo "updating dependencies..."
