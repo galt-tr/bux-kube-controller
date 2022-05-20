@@ -13,4 +13,13 @@ resources:
   kind: Bux
   path: github.com/BuxOrg/bux-kube-controller/api/v1alpha1
   version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: getbux.io
+  group: server
+  kind: Agent
+  path: github.com/BuxOrg/bux-kube-controller/api/v1alpha1
+  version: v1alpha1
 version: "3"

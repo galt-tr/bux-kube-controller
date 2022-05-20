@@ -3,4 +3,11 @@ kind: Bux
 metadata:
   name: bux-sample
 spec:
-  # TODO(user): Add fields here
+  configuration:
+    adminXpub: "<admin_xpub>"
+    autoMigrate: true
+    enablePaymail: true
+    requireSigning: true
+  domain: "<domain>"
+  clusterIssuer: "<cluster_issuer>"
+  console: true
