@@ -42,6 +42,12 @@ type BuxConfig struct {
 	AdminXpub      string `json:"adminXpub"`
 	RequireSigning bool   `json:"requireSigning"`
 	AutoMigrate    bool   `json:"autoMigrate"`
+	//Agent          *AgentConfig `json:"agent"`
+}
+
+// AgentConfig is the bux agent configuration
+type AgentConfig struct {
+	URL string `json:"url"`
 }
 
 // BuxSpec defines the desired state of Bux
@@ -49,6 +55,7 @@ type BuxSpec struct {
 	Configuration *BuxConfig `json:"configuration"`
 	Domain        string     `json:"domain"`
 	ClusterIssuer string     `json:"clusterIssuer"`
+	Console       bool       `json:"console"`
 }
 
 // BuxStatus defines the observed state of Bux

@@ -8,6 +8,32 @@ rules:
 - apiGroups:
   - server.getbux.io
   resources:
+  - agents
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - server.getbux.io
+  resources:
+  - agents/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - server.getbux.io
+  resources:
+  - agents/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - server.getbux.io
+  resources:
   - buxes
   verbs:
   - create

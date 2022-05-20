@@ -54,11 +54,14 @@ spec:
                 - enablePaymail
                 - requireSigning
                 type: object
+              console:
+                type: boolean
               domain:
                 type: string
             required:
             - clusterIssuer
             - configuration
+            - console
             - domain
             type: object
           status:

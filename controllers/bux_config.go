@@ -112,7 +112,6 @@ func defaultBuxConfig() *config.AppConfig {
 			URL:                   "redis://redis-standalone:6379",
 			UseTLS:                false,
 		},
-		Ristretto: &config.RistrettoConfig{},
 		Server: &config.ServerConfig{
 			IdleTimeout:  60 * time.Second,
 			Port:         "3003",
