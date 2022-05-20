@@ -37,18 +37,38 @@
 ## Installation
 
 **bux-kube-controller** requires a [supported release of Go](https://golang.org/doc/devel/release.html#policy).
+
+To install the CRDs and deploy the controller to the cluster, run:
 ```shell script
-go get -u github.com/BuxOrg/bux-kube-controller
+make deploy
+```
+
+### Run controller locally
+
+To run the controller locally for development, first install the CRDs:
+```bash
+make install
+```
+
+Then run the controller:
+```bash
+make run
 ```
 
 <br/>
 
-## Documentation
-View the generated [documentation](https://pkg.go.dev/github.com/BuxOrg/bux-kube-controller)
+## Configuration
 
-[![GoDoc](https://godoc.org/github.com/BuxOrg/bux-kube-controller?status.svg&style=flat&v=1)](https://pkg.go.dev/github.com/BuxOrg/bux-kube-controller)
+There is a limited set of configurable spec fields on the Bux CR. Eventually,
+we will enable the ability to set the entire bux config in the CR, but for now
+the following list are the availble parameters:
 
-<br/>
+| Key           | Type     | Description                                 |
+| ------------- | -------- | ------------------------------------------- |
+| configuration | `Object` | Bux configuration settings                  |
+| domain        | `string` | Domain to deploy bux to                     |
+| clusterIssuer | `string` | Name of cluster issuer object for SSL certs |
+| console       | `bool`   | Enable bux-console provisioning             |
 
 <details>
 <summary><strong><code>Repository Features</code></strong></summary>
