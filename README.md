@@ -34,6 +34,20 @@
 
 <br/>
 
+## Prerequisites
+If you want to use redis, this controller assumed you have installed the [redis
+operator](https://github.com/spotahome/redis-operator). In addition, if you
+with to use MongoDB this controller assumes you have installed the [mongo
+community operator](https://github.com/mongodb/mongodb-kubernetes-operator).
+
+In addition, if you wish to deploy bux to a domain with SSL, this controller
+assumes you have installed the [nginx ingress
+controller](https://kubernetes.github.io/ingress-nginx/) as well as [cert
+manager](https://cert-manager.io/).
+
+<br/>
+
+
 ## Installation
 
 **bux-kube-controller** requires a [supported release of Go](https://golang.org/doc/devel/release.html#policy).
