@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/BuxOrg/bux v0.2.25
 	github.com/BuxOrg/bux-server v0.1.10
-	github.com/go-logr/logr v1.2.2
+	github.com/go-logr/logr v1.2.3
 	github.com/murray-distributed-technologies/redis-operator v0.10.1
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.18.1
