@@ -38,9 +38,6 @@ diff: ## Show the git diff
 	git diff --exit-code
 	RES=$$(git status --porcelain) ; if [ -n "$$RES" ]; then echo $$RES && exit 1 ; fi
 
-help: ## Show this help message
-	@egrep -h '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
-
 install-releaser: ## Install the GoReleaser application
 	@echo "installing GoReleaser..."
 	@curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh

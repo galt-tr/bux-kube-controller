@@ -20,6 +20,7 @@ func (r *BuxReconciler) ReconcileRedis(log logr.Logger) (bool, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "redis-standalone",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &redis, func() error {

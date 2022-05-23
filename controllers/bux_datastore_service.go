@@ -19,6 +19,7 @@ func (r *BuxReconciler) ReconcileDatastoreService(log logr.Logger) (bool, error)
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "bux-datastore",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &svc, func() error {

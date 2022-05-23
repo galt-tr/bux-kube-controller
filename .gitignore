@@ -32,3 +32,6 @@ dist
 
 # Code coverage
 coverage.txt
+
+# binaries
+bin

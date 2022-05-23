@@ -20,6 +20,10 @@ func (r *BuxReconciler) ReconcileDatastore(log logr.Logger) (bool, error) {
 	)
 }
 
+func (r *BuxReconciler) ReconcileDatastoreDeployment(log logr.Logger) (bool, error) {
+	return r.ReconcilePostgresqlDeployment(log)
+}
+
 // ReconcilePostgresqlDeployment is the postgres deployment
 func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
@@ -30,6 +34,7 @@ func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, er
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "bux-postgresql",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &dep, func() error {
@@ -51,6 +56,7 @@ func (r *BuxReconciler) ReconcilePostgresqlPVC(log logr.Logger) (bool, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "bux-postgresql",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 

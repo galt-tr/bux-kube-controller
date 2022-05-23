@@ -31,6 +31,12 @@ var (
 	// SchemeBuilder is used to add go types to the GroupVersionKind scheme
 	SchemeBuilder = &scheme.Builder{GroupVersion: GroupVersion}
 
+	// Kind is the kind that we support
+	Kind = "Bux"
+
 	// AddToScheme adds the types in this group-version to the given scheme.
 	AddToScheme = SchemeBuilder.AddToScheme
+
+	// BuxLabel is the label we are adding to all resources we create
+	BuxLabel = "getbux.io/server"
 )

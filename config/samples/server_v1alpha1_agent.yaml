@@ -1,0 +1,6 @@
+apiVersion: server.getbux.io/v1alpha1
+kind: Agent
+metadata:
+  name: agent-sample
+spec:
+  # TODO(user): Add fields here

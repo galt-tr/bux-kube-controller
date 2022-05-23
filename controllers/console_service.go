@@ -26,6 +26,7 @@ func (r *BuxReconciler) ReconcileConsoleIngress(log logr.Logger) (bool, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "bux-console",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &ingress, func() error {

@@ -44,14 +44,35 @@ spec:
                     type: string
                   autoMigrate:
                     type: boolean
-                  enablePaymail:
-                    type: boolean
+                  datastore:
+                    type: string
+                  paymail:
+                    description: PaymailConfig defines the paymail config
+                    properties:
+                      defaultFromPaymail:
+                        type: string
+                      defaultNote:
+                        type: string
+                      domainValidationEnabled:
+                        type: boolean
+                      domains:
+                        items:
+                          type: string
+                        type: array
+                      enabled:
+                        type: boolean
+                      senderValidationEnabled:
+                        type: boolean
+                    required:
+                    - enabled
+                    type: object
                   requireSigning:
                     type: boolean
                 required:
                 - adminXpub
                 - autoMigrate
-                - enablePaymail
+                - datastore
+                - paymail
                 - requireSigning
                 type: object
               console:

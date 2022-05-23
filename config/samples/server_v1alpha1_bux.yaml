@@ -4,10 +4,16 @@ metadata:
   name: bux-sample
 spec:
   configuration:
+    paymail:
+      enabled: true
+      defaultFromPaymail: "foo@test.com"
+      defaultNote: "Bux satoshis!"
+      domainValidationEnabled: false
+      senderValidationEnabled: false
     adminXpub: "<admin_xpub>"
     autoMigrate: true
-    enablePaymail: true
     requireSigning: true
+    datastore: "foo"
   domain: "<domain>"
   clusterIssuer: "<cluster_issuer>"
   console: true

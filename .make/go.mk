@@ -83,6 +83,3 @@ update-linter: ## Update the golangci-lint package (macOS only)
 	@echo "upgrading golangci-lint..."
 	@brew upgrade golangci-lint
 
-vet: ## Run the Go vet application
-	@echo "running go vet..."
-	@go vet -v ./... $(TAGS)

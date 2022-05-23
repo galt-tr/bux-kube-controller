@@ -26,6 +26,7 @@ func (r *BuxReconciler) ReconcileConfig(log logr.Logger) (bool, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "bux-config",
 			Namespace: r.NamespacedName.Namespace,
+			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &cm, func() error {
@@ -49,6 +50,14 @@ func (r *BuxReconciler) updateBuxConfigMap(configMap *corev1.ConfigMap, bux *ser
 	}
 	if bux.Spec.Domain != "" {
 		configuration.Paymail.Domains[0] = fmt.Sprintf("%s.%s", bux.Namespace, bux.Spec.Domain)
+	}
+
+	if bux.Spec.Configuration.Paymail != nil {
+		configuration.Paymail.Enabled = bux.Spec.Configuration.Paymail.Enabled
+		configuration.Paymail.DefaultNote = bux.Spec.Configuration.Paymail.DefaultNote
+		configuration.Paymail.DefaultFromPaymail = bux.Spec.Configuration.Paymail.DefaultFromPaymail
+		configuration.Paymail.DomainValidationEnabled = bux.Spec.Configuration.Paymail.DomainValidationEnabled
+		configuration.Paymail.SenderValidationEnabled = bux.Spec.Configuration.Paymail.SenderValidationEnabled
 	}
 
 	var data []byte

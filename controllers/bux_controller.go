@@ -103,7 +103,7 @@ func (r *BuxReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 		err = statusErr
 	}
 
-	return ctrl.Result{}, err
+	return ctrl.Result{Requeue: false, RequeueAfter: 0}, err
 }
 
 // SetupWithManager sets up the controller with the Manager.
@@ -113,7 +113,14 @@ func (r *BuxReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		Owns(&appsv1.Deployment{}).
 		Owns(&corev1.Service{}).
 		Owns(&corev1.ConfigMap{}).
+		WithEventFilter(buxPredicate(r.Scheme)).
 		Complete(r)
+}
+
+func (r *BuxReconciler) getAppLabels() map[string]string {
+	return map[string]string{
+		serverv1alpha1.BuxLabel: "true",
+	}
 }
 
 // ReconcileFunc is a reconcile function type

@@ -36,12 +36,23 @@ const ReconcileCompleteMessage = "Reconcile complete"
 // funcs or something like that idk:
 // https://github.com/operator-framework/operator-sdk/issues/612
 
+// PaymailConfig defines the paymail config
+type PaymailConfig struct {
+	Enabled                 bool     `json:"enabled"`
+	DefaultFromPaymail      string   `json:"defaultFromPaymail,omitempty"`
+	DefaultNote             string   `json:"defaultNote,omitempty"`
+	Domains                 []string `json:"domains,omitempty"`
+	DomainValidationEnabled bool     `json:"domainValidationEnabled,omitempty"`
+	SenderValidationEnabled bool     `json:"senderValidationEnabled,omitempty"`
+}
+
 // BuxConfig is the BUX configuration
 type BuxConfig struct {
-	EnablePaymail  bool   `json:"enablePaymail"`
-	AdminXpub      string `json:"adminXpub"`
-	RequireSigning bool   `json:"requireSigning"`
-	AutoMigrate    bool   `json:"autoMigrate"`
+	Paymail        *PaymailConfig `json:"paymail"`
+	AdminXpub      string         `json:"adminXpub"`
+	RequireSigning bool           `json:"requireSigning"`
+	AutoMigrate    bool           `json:"autoMigrate"`
+	Datastore      string         `json:"datastore"`
 	//Agent          *AgentConfig `json:"agent"`
 }
 
