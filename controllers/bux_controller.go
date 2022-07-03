@@ -44,6 +44,10 @@ type BuxReconciler struct {
 }
 
 // +kubebuilder:rbac:groups=server.getbux.io,resources=buxes,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=networking.k8s.io,resources=ingresses,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=redis.redis.opstreelabs.in,resources=redis,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups="",resources=services;configmaps;persistentvolumeclaims,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=server.getbux.io,resources=buxes/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=server.getbux.io,resources=buxes/finalizers,verbs=update
 
