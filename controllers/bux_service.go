@@ -69,6 +69,8 @@ func (r *BuxReconciler) updateIngress(ingress *networkingv1.Ingress, bux *server
 			ingress.Annotations = make(map[string]string)
 		}
 		ingress.Annotations["cert-manager.io/cluster-issuer"] = bux.Spec.ClusterIssuer
+		ingress.Annotations["nginx.ingress.kubernetes.io/enable-cors"] = "true"
+		ingress.Annotations["nginx.ingress.kubernetes.io/cors-allow-headers"] = "bux-auth-time,bux-auth-xpub,bux-auth-hash,bux-auth-nonce,bux-auth-signature,DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
 	}
 	ingress.Spec = *defaultIngressSpec(bux)
 	return nil

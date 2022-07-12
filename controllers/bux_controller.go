@@ -72,6 +72,7 @@ func (r *BuxReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 	_, err := ReconcileBatch(r.Log,
 		r.Validate,
 		r.ReconcileConfig,
+		r.ReconcileConsole,
 		r.ReconcileDatastore,
 		r.ReconcileRedis,
 		r.ReconcileService,

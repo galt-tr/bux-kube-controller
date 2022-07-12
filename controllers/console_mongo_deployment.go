@@ -12,7 +12,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
-func (r *BuxReconciler) ReconcileConsole(log logr.Logger) (bool, error) {
+// ReconcileConsoleMongoDeployment is the deployment
+func (r *BuxReconciler) ReconcileConsoleMongoDeployment(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err
@@ -20,32 +21,15 @@ func (r *BuxReconciler) ReconcileConsole(log logr.Logger) (bool, error) {
 	if !bux.Spec.Console {
 		return false, nil
 	}
-	return ReconcileBatch(log,
-		r.ReconcileConsoleDeployment,
-		r.ReconcileConsoleService,
-		r.ReconcileConsoleMongoDeployment,
-		r.ReconcileConsoleMongoService,
-		r.ReconcileConsoleMongoPVC,
-		r.ReconcileConsoleIngress,
-	)
-
-}
-
-// ReconcileDeployment is the deployment
-func (r *BuxReconciler) ReconcileConsoleDeployment(log logr.Logger) (bool, error) {
-	bux := serverv1alpha1.Bux{}
-	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
-		return false, err
-	}
 	dep := appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      "bux-console",
+			Name:      "bux-console-mongo",
 			Namespace: r.NamespacedName.Namespace,
 			Labels:    r.getAppLabels(),
 		},
 	}
 	_, err := controllerutil.CreateOrUpdate(r.Context, r.Client, &dep, func() error {
-		return r.updateConsoleDeployment(&dep, &bux)
+		return r.updateConsoleMongoDeployment(&dep, &bux)
 	})
 	if err != nil {
 		return false, err
@@ -53,37 +37,22 @@ func (r *BuxReconciler) ReconcileConsoleDeployment(log logr.Logger) (bool, error
 	return true, nil
 }
 
-func (r *BuxReconciler) updateConsoleDeployment(dep *appsv1.Deployment, bux *serverv1alpha1.Bux) error {
+func (r *BuxReconciler) updateConsoleMongoDeployment(dep *appsv1.Deployment, bux *serverv1alpha1.Bux) error {
 	err := controllerutil.SetControllerReference(bux, dep, r.Scheme)
 	if err != nil {
 		return err
 	}
 	url := fmt.Sprintf("https://%s-console.%s", bux.Namespace, bux.Spec.Domain)
-	dep.Spec = *defaultConsoleDeploymentSpec(url)
+	dep.Spec = *defaultConsoleMongoDeploymentSpec(url)
 	return nil
 }
 
-func defaultConsoleDeploymentSpec(url string) *appsv1.DeploymentSpec {
+func defaultConsoleMongoDeploymentSpec(url string) *appsv1.DeploymentSpec {
 	podLabels := map[string]string{
-		"app":        "bux-console",
-		"deployment": "bux-console",
+		"app":        "bux-console-mongo",
+		"deployment": "bux-console-mongo",
 	}
-	var envFrom []corev1.EnvFromSource
-	envVars := []corev1.EnvVar{
-		{
-			Name:  "ROOT_URL",
-			Value: url,
-		},
-		{
-			Name:  "PORT",
-			Value: "3000",
-		},
-		{
-			Name:  "MONGO_URL",
-			Value: "mondogb://bux-console-mongodb:27017/meteor",
-		},
-	}
-	image := "docker.io/galtbv/bux-console:latest"
+	image := "docker.io/mongo:latest"
 	return &appsv1.DeploymentSpec{
 		Replicas: pointer.Int32Ptr(1),
 		Selector: metav1.SetAsLabelSelector(podLabels),
@@ -95,24 +64,33 @@ func defaultConsoleDeploymentSpec(url string) *appsv1.DeploymentSpec {
 			Spec: corev1.PodSpec{
 				Containers: []corev1.Container{
 					{
-						EnvFrom:                  envFrom,
-						Env:                      envVars,
+						Args: []string{
+							"--storageEngine=wiredTiger",
+						},
 						Image:                    image,
 						ImagePullPolicy:          corev1.PullAlways,
-						Name:                     "bux-console",
+						Name:                     "bux-console-mongo",
 						TerminationMessagePolicy: corev1.TerminationMessageFallbackToLogsOnError,
+						VolumeMounts: []corev1.VolumeMount{
+							{
+								Name:      "data",
+								MountPath: "/data/db",
+							},
+						},
 						Ports: []corev1.ContainerPort{
 							{
-								ContainerPort: 3000,
+								ContainerPort: 27017,
 								Protocol:      corev1.ProtocolTCP,
 							},
-							{
-								ContainerPort: 80,
-								Protocol:      corev1.ProtocolTCP,
-							},
-							{
-								ContainerPort: 443,
-								Protocol:      corev1.ProtocolTCP,
+						},
+					},
+				},
+				Volumes: []corev1.Volume{
+					{
+						Name: "data",
+						VolumeSource: corev1.VolumeSource{
+							PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
+								ClaimName: "bux-console-mongo",
 							},
 						},
 					},
