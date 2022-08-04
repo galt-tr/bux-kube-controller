@@ -24,6 +24,8 @@ jobs:
       - name: Ask Nancy
         uses: sonatype-nexus-community/nancy-github-action@v1.0.2
         # continue-on-error: true
+        with:
+          nancyCommand: sleuth --loud --exclude-vulnerability CVE-2022-29153,CVE-2022-24687,CVE-2022-29153,sonatype-2021-0853
   test:
     needs: [asknancy]
     strategy:
