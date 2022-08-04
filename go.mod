@@ -190,3 +190,6 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+// Breaking changes - needs a full refactor in WOC and BUX
+replace github.com/centrifugal/centrifuge-go => github.com/centrifugal/centrifuge-go v0.8.3
