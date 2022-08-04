@@ -29,11 +29,11 @@ const ReconciledReasonComplete = "Complete"
 // ReconciledReasonError is an error
 const ReconciledReasonError = "Error"
 
-// ReconcileCompleteMessage is when the reconile is complete
+// ReconcileCompleteMessage is when the reconciling is complete
 const ReconcileCompleteMessage = "Reconcile complete"
 
 // TODO: this should just be the bux config type, but its missing DeepCopy
-// funcs or something like that idk:
+// Functions or something like that idk:
 // https://github.com/operator-framework/operator-sdk/issues/612
 
 // PaymailConfig defines the paymail config
@@ -53,7 +53,7 @@ type BuxConfig struct {
 	RequireSigning bool           `json:"requireSigning"`
 	AutoMigrate    bool           `json:"autoMigrate"`
 	Datastore      string         `json:"datastore"`
-	//Agent          *AgentConfig `json:"agent"`
+	// Agent          *AgentConfig `json:"agent"`
 }
 
 // AgentConfig is the bux agent configuration
@@ -78,7 +78,7 @@ type BuxStatus struct {
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
-// Bux is the Schema for the buxes API
+// Bux is the Schema for the bux API
 type Bux struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`

@@ -25,7 +25,7 @@ func (r *BuxReconciler) ReconcileDatastoreDeployment(log logr.Logger) (bool, err
 }
 
 // ReconcilePostgresqlDeployment is the postgres deployment
-func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcilePostgresqlDeployment(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err
@@ -47,7 +47,7 @@ func (r *BuxReconciler) ReconcilePostgresqlDeployment(log logr.Logger) (bool, er
 }
 
 // ReconcilePostgresqlPVC is the postgres PVC
-func (r *BuxReconciler) ReconcilePostgresqlPVC(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcilePostgresqlPVC(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

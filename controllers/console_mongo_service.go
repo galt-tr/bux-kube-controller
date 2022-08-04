@@ -9,8 +9,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
-// ReconcileConsoleService is the service
-func (r *BuxReconciler) ReconcileConsoleMongoService(log logr.Logger) (bool, error) {
+// ReconcileConsoleMongoService is the service
+func (r *BuxReconciler) ReconcileConsoleMongoService(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

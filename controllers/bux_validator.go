@@ -3,12 +3,13 @@ package controllers
 import (
 	"errors"
 	"fmt"
+
 	serverv1alpha1 "github.com/BuxOrg/bux-kube-controller/api/v1alpha1"
 	"github.com/go-logr/logr"
 )
 
 // Validate will run validations
-func (r *BuxReconciler) Validate(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) Validate(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

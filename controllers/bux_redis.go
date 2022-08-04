@@ -11,7 +11,7 @@ import (
 )
 
 // ReconcileRedis is for redis
-func (r *BuxReconciler) ReconcileRedis(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcileRedis(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

@@ -7,17 +7,17 @@ import (
 
 	serverv1alpha1 "github.com/BuxOrg/bux-kube-controller/api/v1alpha1"
 	"github.com/BuxOrg/bux-server/config"
-	"github.com/BuxOrg/bux/datastore"
 	"github.com/BuxOrg/bux/taskmanager"
 	"github.com/go-logr/logr"
 	"github.com/mrz1836/go-cachestore"
+	"github.com/mrz1836/go-datastore"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
 // ReconcileConfig will reconcile configuration
-func (r *BuxReconciler) ReconcileConfig(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcileConfig(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

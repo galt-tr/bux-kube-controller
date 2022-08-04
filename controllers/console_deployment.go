@@ -12,6 +12,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
+// ReconcileConsole will reconcile console
 func (r *BuxReconciler) ReconcileConsole(log logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
@@ -31,8 +32,8 @@ func (r *BuxReconciler) ReconcileConsole(log logr.Logger) (bool, error) {
 
 }
 
-// ReconcileDeployment is the deployment
-func (r *BuxReconciler) ReconcileConsoleDeployment(log logr.Logger) (bool, error) {
+// ReconcileConsoleDeployment is the deployment
+func (r *BuxReconciler) ReconcileConsoleDeployment(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

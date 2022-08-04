@@ -13,7 +13,7 @@ import (
 )
 
 // ReconcileConsoleIngress is the ingress
-func (r *BuxReconciler) ReconcileConsoleIngress(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcileConsoleIngress(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err
@@ -39,7 +39,7 @@ func (r *BuxReconciler) ReconcileConsoleIngress(log logr.Logger) (bool, error) {
 }
 
 // ReconcileConsoleService is the service
-func (r *BuxReconciler) ReconcileConsoleService(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcileConsoleService(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

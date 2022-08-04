@@ -13,7 +13,7 @@ import (
 )
 
 // ReconcileConsoleMongoDeployment is the deployment
-func (r *BuxReconciler) ReconcileConsoleMongoDeployment(log logr.Logger) (bool, error) {
+func (r *BuxReconciler) ReconcileConsoleMongoDeployment(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err
@@ -47,7 +47,7 @@ func (r *BuxReconciler) updateConsoleMongoDeployment(dep *appsv1.Deployment, bux
 	return nil
 }
 
-func defaultConsoleMongoDeploymentSpec(url string) *appsv1.DeploymentSpec {
+func defaultConsoleMongoDeploymentSpec(_ string) *appsv1.DeploymentSpec {
 	podLabels := map[string]string{
 		"app":        "bux-console-mongo",
 		"deployment": "bux-console-mongo",

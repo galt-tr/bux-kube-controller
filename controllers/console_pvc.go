@@ -9,8 +9,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 )
 
-// ReconcileMongoPVC is the postgres PVC
-func (r *BuxReconciler) ReconcileConsoleMongoPVC(log logr.Logger) (bool, error) {
+// ReconcileConsoleMongoPVC is the postgres PVC
+func (r *BuxReconciler) ReconcileConsoleMongoPVC(_ logr.Logger) (bool, error) {
 	bux := serverv1alpha1.Bux{}
 	if err := r.Get(r.Context, r.NamespacedName, &bux); err != nil {
 		return false, err

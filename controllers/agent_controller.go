@@ -33,9 +33,9 @@ type AgentReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=server.getbux.io,resources=agents,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=server.getbux.io,resources=agents/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=server.getbux.io,resources=agents/finalizers,verbs=update
+// +kubebuilder:rbac:groups=server.getbux.io,resources=agents,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=server.getbux.io,resources=agents/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=server.getbux.io,resources=agents/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -46,7 +46,7 @@ type AgentReconciler struct {
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.11.0/pkg/reconcile
-func (r *AgentReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *AgentReconciler) Reconcile(ctx context.Context, _ ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
