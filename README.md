@@ -1,18 +1,18 @@
 # BUX: Kubernetes Controller
 > Manage your [BUX](https://getbux.io) deployments using Kubernetes
 
-[![Release](https://img.shields.io/github/release-pre/BuxOrg/bux-kube-controller.svg?logo=github&style=flat&v=1)](https://github.com/BuxOrg/bux-kube-controller/releases)
-[![Build Status](https://img.shields.io/github/workflow/status/BuxOrg/bux-kube-controller/run-go-tests?logo=github&v=1)](https://github.com/BuxOrg/bux-kube-controller/actions)
-[![Report](https://goreportcard.com/badge/github.com/BuxOrg/bux-kube-controller?style=flat&v=1)](https://goreportcard.com/report/github.com/BuxOrg/bux-kube-controller)
-[![codecov](https://codecov.io/gh/BuxOrg/bux-kube-controller/branch/master/graph/badge.svg?v=1)](https://codecov.io/gh/BuxOrg/bux-kube-controller)
-[![Mergify Status](https://img.shields.io/endpoint.svg?url=https://api.mergify.com/v1/badges/BuxOrg/bux-kube-controller&style=flat&v=1)](https://mergify.io)
-[![Go](https://img.shields.io/github/go-mod/go-version/BuxOrg/bux-kube-controller?v=1)](https://golang.org/)
+[![Release](https://img.shields.io/github/release-pre/BuxOrg/bux-kube-controller.svg?logo=github&style=flat&v=2)](https://github.com/BuxOrg/bux-kube-controller/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/BuxOrg/bux-kube-controller/run-go-tests?logo=github&v=2)](https://github.com/BuxOrg/bux-kube-controller/actions)
+[![Report](https://goreportcard.com/badge/github.com/BuxOrg/bux-kube-controller?style=flat&v=2)](https://goreportcard.com/report/github.com/BuxOrg/bux-kube-controller)
+[![codecov](https://codecov.io/gh/BuxOrg/bux-kube-controller/branch/master/graph/badge.svg?v=2)](https://codecov.io/gh/BuxOrg/bux-kube-controller)
+[![Mergify Status](https://img.shields.io/endpoint.svg?url=https://api.mergify.com/v1/badges/BuxOrg/bux-kube-controller&style=flat&v=2)](https://mergify.io)
+[![Go](https://img.shields.io/github/go-mod/go-version/BuxOrg/bux-kube-controller?v=2)](https://golang.org/)
 <br>
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BuxOrg/bux-kube-controller)
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
-[![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20-brightgreen?=flat&logo=probot)](Makefile)
-[![Sponsor](https://img.shields.io/badge/sponsor-BuxOrg-181717.svg?logo=github&style=flat&v=1)](https://github.com/sponsors/BuxOrg)
-[![Donate](https://img.shields.io/badge/donate-bitcoin-ff9900.svg?logo=bitcoin&style=flat&v=1)](https://gobitcoinsv.com/#sponsor?utm_source=github&utm_medium=sponsor-link&utm_campaign=bux-kube-controller&utm_term=bux-kube-controller&utm_content=bux-kube-controller)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&v=2)](https://gitpod.io/#https://github.com/BuxOrg/bux-kube-controller)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat&v=2)](https://github.com/RichardLitt/standard-readme)
+[![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20-brightgreen?=flat&logo=probot&v=2)](Makefile)
+[![Sponsor](https://img.shields.io/badge/sponsor-BuxOrg-181717.svg?logo=github&style=flat&v=2)](https://github.com/sponsors/BuxOrg)
+[![Donate](https://img.shields.io/badge/donate-bitcoin-ff9900.svg?logo=bitcoin&style=flat&v=2)](https://gobitcoinsv.com/#sponsor?utm_source=github&utm_medium=sponsor-link&utm_campaign=bux-kube-controller&utm_term=bux-kube-controller&utm_content=bux-kube-controller)
 
 <br/>
 
@@ -289,4 +289,4 @@ Thank you to these wonderful people ([emoji key](https://allcontributors.org/doc
 
 ## License
 
-[![License](https://img.shields.io/github/license/BuxOrg/bux-kube-controller.svg?style=flat&v=1)](LICENSE)
+[![License](https://img.shields.io/github/license/BuxOrg/bux-kube-controller.svg?style=flat&v=2)](LICENSE)
