@@ -4,7 +4,6 @@
 [![Release](https://img.shields.io/github/release-pre/BuxOrg/bux-kube-controller.svg?logo=github&style=flat&v=2)](https://github.com/BuxOrg/bux-kube-controller/releases)
 [![Build Status](https://img.shields.io/github/workflow/status/BuxOrg/bux-kube-controller/run-go-tests?logo=github&v=2)](https://github.com/BuxOrg/bux-kube-controller/actions)
 [![Report](https://goreportcard.com/badge/github.com/BuxOrg/bux-kube-controller?style=flat&v=2)](https://goreportcard.com/report/github.com/BuxOrg/bux-kube-controller)
-[![codecov](https://codecov.io/gh/BuxOrg/bux-kube-controller/branch/master/graph/badge.svg?v=2)](https://codecov.io/gh/BuxOrg/bux-kube-controller)
 [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://api.mergify.com/v1/badges/BuxOrg/bux-kube-controller&style=flat&v=2)](https://mergify.io)
 [![Go](https://img.shields.io/github/go-mod/go-version/BuxOrg/bux-kube-controller?v=2)](https://golang.org/)
 <br>
