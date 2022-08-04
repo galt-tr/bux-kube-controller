@@ -66,6 +66,10 @@ generate: controller-gen ## Generate code containing DeepCopy, DeepCopyInto, and
 fmt: ## Run go fmt against code.
 	go fmt ./...
 
+.PHONY: vet
+vet: ## Run go vet against code.
+	go vet ./...
+
 .PHONY: test
 test: manifests generate fmt vet envtest ## Run tests.
 	KUBEBUILDER_ASSETS="$(shell $(ENVTEST) use $(ENVTEST_K8S_VERSION) -p path)" go test ./... -coverprofile cover.out
@@ -136,6 +140,7 @@ release:: ## Runs common.release then runs godocs
 update-contributors: ## Regenerates the contributors html/list
 	@echo "generating contributor html..."
 	@all-contributors generate
+
 
 # go-get-tool will 'go get' any package $2 and install it to $1.
 PROJECT_DIR := $(shell pwd)
