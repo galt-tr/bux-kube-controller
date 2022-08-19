@@ -3,11 +3,11 @@ module github.com/BuxOrg/bux-kube-controller
 go 1.18
 
 require (
-	github.com/BuxOrg/bux v0.4.7
+	github.com/BuxOrg/bux v0.4.8
 	github.com/BuxOrg/bux-server v0.3.1
 	github.com/go-logr/logr v1.2.3
 	github.com/mrz1836/go-cachestore v0.1.2
-	github.com/mrz1836/go-datastore v0.1.3
+	github.com/mrz1836/go-datastore v0.1.4
 	github.com/murray-distributed-technologies/redis-operator v0.10.1
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.20.0
@@ -107,7 +107,7 @@ require (
 	github.com/mrz1836/go-api-router v0.4.15 // indirect
 	github.com/mrz1836/go-cache v0.7.2 // indirect
 	github.com/mrz1836/go-logger v0.3.1 // indirect
-	github.com/mrz1836/go-nownodes v0.0.6 // indirect
+	github.com/mrz1836/go-nownodes v0.0.7 // indirect
 	github.com/mrz1836/go-parameters v0.2.9 // indirect
 	github.com/mrz1836/go-sanitize v1.1.5 // indirect
 	github.com/mrz1836/go-validate v0.2.0 // indirect
@@ -137,7 +137,7 @@ require (
 	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/subosito/gotenv v1.4.0 // indirect
-	github.com/tidwall/gjson v1.14.2 // indirect
+	github.com/tidwall/gjson v1.14.3 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/tonicpow/go-minercraft v0.8.0 // indirect
@@ -162,14 +162,14 @@ require (
 	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
 	golang.org/x/oauth2 v0.0.0-20220722155238-128564f6959c // indirect
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4 // indirect
-	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
+	golang.org/x/sys v0.0.0-20220817070843-5a390386f1f2 // indirect
 	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220815135757-37a418bb8959 // indirect
+	google.golang.org/genproto v0.0.0-20220817144833-d7fd3f11b9b1 // indirect
 	google.golang.org/grpc v1.48.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
