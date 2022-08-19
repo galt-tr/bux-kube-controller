@@ -3,7 +3,7 @@ module github.com/BuxOrg/bux-kube-controller
 go 1.18
 
 require (
-	github.com/BuxOrg/bux v0.4.7
+	github.com/BuxOrg/bux v0.4.8
 	github.com/BuxOrg/bux-server v0.3.1
 	github.com/go-logr/logr v1.2.3
 	github.com/mrz1836/go-cachestore v0.1.2
@@ -107,7 +107,7 @@ require (
 	github.com/mrz1836/go-api-router v0.4.15 // indirect
 	github.com/mrz1836/go-cache v0.7.2 // indirect
 	github.com/mrz1836/go-logger v0.3.1 // indirect
-	github.com/mrz1836/go-nownodes v0.0.6 // indirect
+	github.com/mrz1836/go-nownodes v0.0.7 // indirect
 	github.com/mrz1836/go-parameters v0.2.9 // indirect
 	github.com/mrz1836/go-sanitize v1.1.5 // indirect
 	github.com/mrz1836/go-validate v0.2.0 // indirect
@@ -137,7 +137,7 @@ require (
 	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/subosito/gotenv v1.4.0 // indirect
-	github.com/tidwall/gjson v1.14.2 // indirect
+	github.com/tidwall/gjson v1.14.3 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/tonicpow/go-minercraft v0.8.0 // indirect
