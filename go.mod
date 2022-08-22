@@ -7,7 +7,7 @@ require (
 	github.com/BuxOrg/bux-server v0.3.1
 	github.com/go-logr/logr v1.2.3
 	github.com/mrz1836/go-cachestore v0.1.2
-	github.com/mrz1836/go-datastore v0.1.4
+	github.com/mrz1836/go-datastore v0.1.5
 	github.com/murray-distributed-technologies/redis-operator v0.10.1
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.20.0
@@ -20,7 +20,7 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.7.0 // indirect
-	github.com/99designs/gqlgen v0.17.13 // indirect
+	github.com/99designs/gqlgen v0.17.14 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest v0.11.28 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
@@ -113,7 +113,7 @@ require (
 	github.com/mrz1836/go-validate v0.2.0 // indirect
 	github.com/mrz1836/go-whatsonchain v0.11.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/newrelic/go-agent/v3 v3.18.0 // indirect
+	github.com/newrelic/go-agent/v3 v3.18.1 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrhttprouter v1.0.1 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrmongo v1.0.2 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
@@ -145,7 +145,7 @@ require (
 	github.com/tylertreat/BoomFilters v0.0.0-20210315201527-1a82519a3e43 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/vektah/gqlparser/v2 v2.4.7 // indirect
+	github.com/vektah/gqlparser/v2 v2.4.8 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/vmihailenco/taskq/v3 v3.2.9-0.20211122085105-720ffc56ac4d // indirect
@@ -157,12 +157,12 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	go.uber.org/zap v1.21.0 // indirect
-	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
+	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
 	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
 	golang.org/x/oauth2 v0.0.0-20220722155238-128564f6959c // indirect
-	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4 // indirect
-	golang.org/x/sys v0.0.0-20220817070843-5a390386f1f2 // indirect
+	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde // indirect
+	golang.org/x/sys v0.0.0-20220818161305-2296e01440c6 // indirect
 	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
