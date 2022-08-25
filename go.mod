@@ -3,7 +3,7 @@ module github.com/BuxOrg/bux-kube-controller
 go 1.18
 
 require (
-	github.com/BuxOrg/bux v0.4.8
+	github.com/BuxOrg/bux v0.4.9
 	github.com/BuxOrg/bux-server v0.3.1
 	github.com/go-logr/logr v1.2.3
 	github.com/mrz1836/go-cachestore v0.1.2
@@ -20,7 +20,7 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.7.0 // indirect
-	github.com/99designs/gqlgen v0.17.14 // indirect
+	github.com/99designs/gqlgen v0.17.15 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest v0.11.28 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
@@ -157,20 +157,20 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	go.uber.org/zap v1.21.0 // indirect
-	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
+	golang.org/x/crypto v0.0.0-20220824171710-5757bc0c5503 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
+	golang.org/x/net v0.0.0-20220822230855-b0a4917ee28c // indirect
 	golang.org/x/oauth2 v0.0.0-20220722155238-128564f6959c // indirect
 	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde // indirect
-	golang.org/x/sys v0.0.0-20220818161305-2296e01440c6 // indirect
+	golang.org/x/sys v0.0.0-20220823224334-20c2bfdbfe24 // indirect
 	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220817144833-d7fd3f11b9b1 // indirect
-	google.golang.org/grpc v1.48.0 // indirect
+	google.golang.org/genproto v0.0.0-20220822174746-9e6da59bd2fc // indirect
+	google.golang.org/grpc v1.49.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -181,7 +181,7 @@ require (
 	gorm.io/driver/postgres v1.3.9 // indirect
 	gorm.io/driver/sqlite v1.3.6 // indirect
 	gorm.io/gorm v1.23.8 // indirect
-	gorm.io/plugin/dbresolver v1.2.2 // indirect
+	gorm.io/plugin/dbresolver v1.2.3 // indirect
 	k8s.io/apiextensions-apiserver v0.24.3 // indirect
 	k8s.io/component-base v0.24.3 // indirect
 	k8s.io/klog/v2 v2.70.1 // indirect
