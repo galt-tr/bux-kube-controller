@@ -10,7 +10,7 @@ require (
 	github.com/mrz1836/go-datastore v0.1.5
 	github.com/murray-distributed-technologies/redis-operator v0.10.1
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.20.0
+	github.com/onsi/gomega v1.20.1
 	k8s.io/api v0.25.0
 	k8s.io/apimachinery v0.25.0
 	k8s.io/client-go v0.25.0
