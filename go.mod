@@ -6,7 +6,7 @@ require (
 	github.com/BuxOrg/bux v0.4.9
 	github.com/BuxOrg/bux-server v0.3.1
 	github.com/go-logr/logr v1.2.3
-	github.com/mrz1836/go-cachestore v0.1.2
+	github.com/mrz1836/go-cachestore v0.1.3
 	github.com/mrz1836/go-datastore v0.1.5
 	github.com/murray-distributed-technologies/redis-operator v0.10.1
 	github.com/onsi/ginkgo v1.16.5
@@ -106,7 +106,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/montanaflynn/stats v0.6.6 // indirect
 	github.com/mrz1836/go-api-router v0.4.15 // indirect
-	github.com/mrz1836/go-cache v0.7.2 // indirect
+	github.com/mrz1836/go-cache v0.7.3 // indirect
 	github.com/mrz1836/go-logger v0.3.1 // indirect
 	github.com/mrz1836/go-nownodes v0.0.7 // indirect
 	github.com/mrz1836/go-parameters v0.2.9 // indirect
@@ -114,7 +114,7 @@ require (
 	github.com/mrz1836/go-validate v0.2.0 // indirect
 	github.com/mrz1836/go-whatsonchain v0.11.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/newrelic/go-agent/v3 v3.18.1 // indirect
+	github.com/newrelic/go-agent/v3 v3.18.2 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrhttprouter v1.0.1 // indirect
 	github.com/newrelic/go-agent/v3/integrations/nrmongo v1.0.2 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
@@ -160,17 +160,17 @@ require (
 	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/crypto v0.0.0-20220824171710-5757bc0c5503 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/net v0.0.0-20220822230855-b0a4917ee28c // indirect
+	golang.org/x/net v0.0.0-20220907135653-1e95f45603a7 // indirect
 	golang.org/x/oauth2 v0.0.0-20220722155238-128564f6959c // indirect
 	golang.org/x/sync v0.0.0-20220819030929-7fc1605a5dde // indirect
-	golang.org/x/sys v0.0.0-20220823224334-20c2bfdbfe24 // indirect
+	golang.org/x/sys v0.0.0-20220907062415-87db552b00fd // indirect
 	golang.org/x/term v0.0.0-20220722155259-a9ba230a4035 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220822174746-9e6da59bd2fc // indirect
+	google.golang.org/genproto v0.0.0-20220902135211-223410557253 // indirect
 	google.golang.org/grpc v1.49.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
