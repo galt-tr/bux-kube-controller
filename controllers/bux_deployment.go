@@ -53,7 +53,7 @@ func defaultDeploymentSpec() *appsv1.DeploymentSpec {
 			Value: "development",
 		},
 	}
-	image := "docker.io/galtbv/bux:latest"
+	image := "docker.io/buxorg/bux-server:latest"
 	return &appsv1.DeploymentSpec{
 		Replicas: pointer.Int32Ptr(1),
 		Selector: metav1.SetAsLabelSelector(podLabels),
